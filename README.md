@@ -1,4 +1,4 @@
-# mithril-express
+# mithril-ts-starter
 
 ```
 npm install 
