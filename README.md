@@ -1,5 +1,9 @@
 # mithril-express
 
-node src/server.js
+```
+npm install 
+```
 
+```
 npm start 
+```
