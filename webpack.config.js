@@ -9,7 +9,6 @@ module.exports = (env, argv) => {
             app: './app.ts'
         },
 
-
         output: {
             filename: '[name].[contenthash].bundle.js',
             chunkFilename: '[name].[contenthash].bundle.js',
