@@ -52,21 +52,45 @@
 import * as m from 'mithril';
 import { StudentFormComponent , TableComponent, Student} from './components/Student';
 
-// let students : Student[] = [
-//     {firstName:'sindhu',lastName:'kumari'},
-//     {firstName:'lin',lastName:'Hlaing'}
-// ];
-
-let students: Student[] = [];
+let studentList: Student[] = [];
+let isFormShown = false;
 
 function MainComponent(): m.Component<{}>{
+    let student : Student = {
+        firstName: "",
+        lastName: ""
+    }
+
+    let deleteStudentIndex: number;
     return {
         view(vnode){
             return [
+                (studentList.length != 0) ?
+                 m(TableComponent,{
+                    studentList,
+                    onEditSave: (editStudent: Student, studentIndex: number) => {
+                        studentList[studentIndex] = editStudent; 
+                    },
+                    onDelete: (deleteStudent: Student) => {
+                        deleteStudentIndex = studentList.indexOf(deleteStudent);
+                        studentList.splice(deleteStudentIndex,1);
+                    }
+                 }): "",
+                (isFormShown)? 
                 m(StudentFormComponent, {
-                    firstName:'',
-                    lastName: ''
-                })
+                    student,
+                    onUpdated: (newStudent: Student) => {
+                        studentList.push(newStudent);
+                        isFormShown = false;
+                    }
+                }) : 
+                m("button.btn btn-primary.mt-4",{
+                    onclick: event => {
+                        isFormShown = true;
+                    }
+                }, "Add Student")
+
+                
             ]
         }
     }
