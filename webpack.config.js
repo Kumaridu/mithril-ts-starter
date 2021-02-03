@@ -10,8 +10,8 @@ module.exports = (env, argv) => {
         },
 
         output: {
-            filename: '[name].[contenthash].bundle.js',
-            chunkFilename: '[name].[contenthash].bundle.js',
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].bundle.js',
             path: path.resolve(__dirname, 'dist'),
         },
 

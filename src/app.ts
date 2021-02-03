@@ -1,57 +1,24 @@
-// import * as m from 'mithril';
-
-// interface CounterComponentAttrs {
-//     initialCount:number
-// }
-
-// function CounterComponent(): m.Component<CounterComponentAttrs> {
-//     let currentCount:number = 0;
-
-//     return {
-//         oninit(vnode) {
-//             currentCount = vnode.attrs.initialCount;
-//         },
-
-//         view(vnode) {
-//             return m("div", 
-//                 [
-//                     m("span", "Count : " + currentCount),
-//                     m("button", {
-//                         onclick: () => {
-//                             currentCount++;
-//                         }
-//                     }, "+"),
-//                     m("button", {
-//                         onclick: () => {
-//                             currentCount--;
-//                         }
-//                     }, "-")
-//                 ]
-//             );
-//         }
-//     }
-// }
-
-// function MainComponent(): m.Component<{}> {
-//     return {
-//         view(vnode) {
-//             return [
-//                 m("h1", "Counter App"),
-//                 m(CounterComponent, {initialCount:0})
-//             ];
-//         }
-//     }
-// }
-
-// let divElem = document.getElementById("app");
-// if(divElem != null) {
-//     //m.render(divElem, "Hello World");
-//     m.mount(divElem, MainComponent);
-// }
-
 import * as m from 'mithril';
-import { StudentFormComponent , TableComponent, Student} from './components/Student';
+import { StudentFormComponent ,Student} from './components/FormComponent';
+import {TableComponent} from './components/TableComponent';
 
+// class studentLists{
+//     students: Student[]
+
+//     addStudent(newStudent: Student){
+//         this.students.push(newStudent);
+//     }
+
+//     editStudent(student: Student, studentIndex: number){
+//         this.students[studentIndex] = student;
+//     }
+
+//     deleteStudent(student:Student){
+//         let deleteStudentIndex: number;
+//         deleteStudentIndex = studentList.indexOf(student);
+//         this.students.splice(deleteStudentIndex,1);
+//     }
+// }
 let studentList: Student[] = [];
 let isFormShown = false;
 
